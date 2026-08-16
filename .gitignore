@@ -29,6 +29,11 @@ sftp.json
 # Python Tools for Visual Studio (PTVS)
 **/__pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
 # KHUDA 173 large data
 KHUDA_173/
@@ -43,5 +48,12 @@ raw/
 *.out
 logs/
 __pycache__/
+checkpoints/
+yolo_runs/
+pipeline_outputs/
+*.pt
+*.pth
+*.ckpt
+*.webm
 
 models/*

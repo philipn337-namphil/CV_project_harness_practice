@@ -115,3 +115,31 @@ A task is done only when:
 - The source window vs 16-frame model input distinction remains clear.
 - Verification commands were run or skipped with a documented reason.
 - `git status` shows only expected changes before commit, and clean status after commit/push when requested.
+
+## Verification Harness
+
+After any non-trivial code change, run:
+
+    python -m pytest
+
+The task is not complete unless the relevant harness tests pass.
+
+Current contract tests protect:
+
+- canonical model import
+- model input/output shape
+- checkpoint compatibility
+- dataset schema
+- batch schema
+- preprocessing behavior
+- ImageNet normalization
+
+If a test fails:
+
+1. Do not delete or weaken the test just to make it pass.
+2. Identify whether the implementation or the documented contract is wrong.
+3. If the contract must change, explain the impact first.
+4. Update documentation and tests together with the implementation.
+5. Re-run the full harness.
+
+For changes affecting protected model behavior, also verify checkpoint compatibility.

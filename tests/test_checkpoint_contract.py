@@ -6,7 +6,7 @@ import torch
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-MODEL_PATH = REPO_ROOT / "legacy" / "final_package" / "model.py"
+MODEL_PATH = REPO_ROOT / "src" / "khuda_cv" / "model.py"
 
 CHECKPOINT_PATH = (
     Path.home()

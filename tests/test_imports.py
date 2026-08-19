@@ -3,7 +3,7 @@ import importlib.util
 
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-MODEL_PATH = REPO_ROOT / "legacy" / "final_package" / "model.py"
+MODEL_PATH = REPO_ROOT / "src" / "khuda_cv" / "model.py"
 
 
 def test_canonical_model_file_exists():

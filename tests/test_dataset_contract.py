@@ -1,5 +1,6 @@
 import torch
 
+from src.khuda_cv.data import collate_fn
 
 def make_sample():
     return {
@@ -11,24 +12,6 @@ def make_sample():
     }
 
 
-def canonical_collate(batch):
-    return {
-        "pixel_values": torch.stack(
-            [item["pixel_values"] for item in batch]
-        ),
-        "clip_label": torch.stack(
-            [item["clip_label"] for item in batch]
-        ),
-        "frame_labels": torch.stack(
-            [item["frame_labels"] for item in batch]
-        ),
-        "clip_id": [
-            item["clip_id"] for item in batch
-        ],
-        "video_path": [
-            item["video_path"] for item in batch
-        ],
-    }
 
 
 def test_dataset_sample_contract():
@@ -54,7 +37,7 @@ def test_dataset_sample_contract():
 
 
 def test_dataloader_batch_contract():
-    batch = canonical_collate([
+    batch = collate_fn([
         make_sample(),
         make_sample(),
     ])
